@@ -7,8 +7,8 @@ _Hvad er console.log?_
 **Console.log viser koden i konsolen**
 
 *Du kan f.eks bruge det til:*
-* 1. At finde fejl
-* 2. For at teste at det virker som det skal
+* At finde fejl
+* For at teste at det virker som det skal
 
 *Læs mere på:*
   
