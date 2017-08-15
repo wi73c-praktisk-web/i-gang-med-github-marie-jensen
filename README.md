@@ -1,4 +1,18 @@
 # i-gang-med-github-marie-jensen
+
+## Forklaring på hvordan man laver en repository
+
+*Sådan gør du:*
+* Du logger ind på Github
+* Derefter trykker du på + (New repository)
+* Derefter vælger du hvem owner er, fx om det skal være Marie Jensen eller holdet/klassen
+* Derefter vælger du om det skal være private eller public
+* Ret derefter add.gitignore fra none til node
+* Tilsidst tryk create repository
+
+
+
+
 ## Defination af console.log
 
 
