@@ -123,3 +123,75 @@ I parentesen efter for-kodeordet angives tre elementer afskilt af et semikolon:
 *Det sidste element opskriver tællevariablen. I eksemplet opskrives tællevariablen med én (i++).* 
 
 
+## Intro til Funktioner
+Der er indbyggede funktioner i Javascript som fx console.log(), hvor log() er en function til console.
+
+Helt grundlæggende er en funktion en samling af instruktioner som udføres ved et kald til funktionens navn.
+
+*Her er et eksempel på en simpel funktion:*
+
+```javascript
+hejsa();// Her bliver funktionen kaldt
+function hello() { //hello er funktionens navn
+    console.log("hejsa marie..."); // Udskriver "hejsa marie...
+}
+```
+Næsten alt hvad der er dynamisk på en hjemmeside er lavet med funktioner fx læs mere effekter, billedegallerier, dropdown menuer osv. 
+
+*Et andet eksempel på en funktion:*
+```javascript
+function mig(fornavn, efternavn, fodselsdag) { 
+    console.log(fornavn, efternavn, fodselsdag);
+}
+
+mig('Marie', 'Jensen', '10 november 1992');
+ ```
+
+### Hoisting
+Hoisting er et begreb som betyder at funktionen kan kaldes før den er deklareret, altså før funktionen er lavet.
+
+*Et eksempel* 
+```javascript
+// Hoisting - funktionen kan kaldes før den er deklareret
+// Funktionen kaldes med én værdi og modtages i ét argument
+sayHello('Anne');  // Udskriver "hello Anne"
+sayHello('Ida');  // Udskriver "hello Ida"
+sayHello('Mikkel');  // Udskriver "hello Mikkel"
+
+function sayHello(who) { // who er et argument
+    console.log('hello', who);
+}
+
+sayHello('Marie'); // Udskriver "hello Marie"
+sayHello('Ida'); // Udskriver "hello Ida"
+```
+
+### Anonyme funktioner
+En anonym funktion er en funktion uden et navn. Funktionnen bliver kaldt ved en variabels navn idet en variabel bliver tildelt en funktion. 
+
+*Eksempel:*
+
+```javascript
+// Anonym funktion
+var HejMedDig = function (value) {
+    console.log(value); // Udskriver " bla bla bla bla"
+}
+
+HejMedDig('bla bla bla bla');
+```
+*Her er et andet eksempel*
+
+```javascript
+//profiler med flere personer
+
+var tekst = " " ; 
+var profiler = [["Peter", "Pedal", 1941],["Marie", "Jensen", 1992],["Ida", "Hansen", 1994]]
+
+profiler.forEach(function(element) {
+    element.forEach(function(item) {
+        tekst += item + "\n"
+    });
+});
+
+console.log(tekst);
+```
