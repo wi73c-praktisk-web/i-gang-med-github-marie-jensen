@@ -120,11 +120,12 @@ I parentesen efter for-kodeordet angives tre elementer afskilt af et semikolon:
 
 
 ## Intro til Funktioner
-Der er indbyggede funktioner i Javascript som fx console.log(), hvor log() er en function til console.
 
 Helt grundlæggende er en funktion en samling af instruktioner som udføres ved et kald til funktionens navn.
 
 En funktion startes med ordet function, og efterfølges af det navn som du har givet denne (funktionsnavn). Der er altid parenteser () efter funktionsnavnet, inden man anvender krøllede parenteser {}. Det som er inden i parenteserne () kaldes funktionens argument/argumenter. De krøllede parenteser indeholder en række instruktioner som ønskes udført.
+
+Der er indbyggede funktioner i Javascript som fx console.log(), hvor log() er en function til console.
 
 Man skriver en funktion i javascript således:
 
