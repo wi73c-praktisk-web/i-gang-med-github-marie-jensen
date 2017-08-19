@@ -124,6 +124,8 @@ Der er indbyggede funktioner i Javascript som fx console.log(), hvor log() er en
 
 Helt grundlæggende er en funktion en samling af instruktioner som udføres ved et kald til funktionens navn.
 
+En funktion startes med ordet function, og efterfølges af det navn som du har givet denne (funktionsnavn). Der er altid parenteser () efter funktionsnavnet, inden man anvender krøllede parenteser {}. Det som er inden i parenteserne () kaldes funktionens argument/argumenter. De krøllede parenteser indeholder en række instruktioner som ønskes udført.
+
 Man skriver en funktion i javascript således:
 
 *Her er et eksempel på en simpel funktion:*
