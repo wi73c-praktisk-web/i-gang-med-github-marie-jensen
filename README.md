@@ -11,10 +11,7 @@
 * Tilsidst tryk create repository
 
 
-
-
 ## Defination af console.log
-
 
 _Hvad er console.log?_
 
@@ -96,7 +93,6 @@ i if-else sætninger er der altid () og de lukkes med { }.
 * ( | | ) Kan oversættes til 'Eller' Hvis bare en ud af flere betingelser skal opfyldes
 
 
-
 ## Forklaring på en For-løkke
 
 Man bruger en For løkke hvis man vil gentage noget kode flere gange.
@@ -128,17 +124,24 @@ Der er indbyggede funktioner i Javascript som fx console.log(), hvor log() er en
 
 Helt grundlæggende er en funktion en samling af instruktioner som udføres ved et kald til funktionens navn.
 
+Man skriver en funktion i javascript således:
+
 *Her er et eksempel på en simpel funktion:*
 
 ```javascript
 hejsa();// Her bliver funktionen kaldt
-function hello() { //hello er funktionens navn
-    console.log("hejsa marie..."); // Udskriver "hejsa marie...
+function hejsa() { //hello er funktionens navn
+    console.log("hejsa marie..."); // Udskriver "hejsa marie...i konsollen
 }
 ```
+
 Næsten alt hvad der er dynamisk på en hjemmeside er lavet med funktioner fx læs mere effekter, billedegallerier, dropdown menuer osv. 
 
-*Et andet eksempel på en funktion:*
+En funktion kan have flere arguments dvs. at den kan have flere ord/tal inden i ( ).
+Hvis der er flere arguments i funtionen skal de adskilles af et komma - og ligeledes kaldes komma adskilt.
+
+*Her er et eksempel på en funktion med flere arguments:*
+
 ```javascript
 function mig(fornavn, efternavn, fodselsdag) { 
     console.log(fornavn, efternavn, fodselsdag);
@@ -163,29 +166,64 @@ function sayHello(who) { // who er et argument
 }
 
 sayHello('Marie'); // Udskriver "hello Marie"
-sayHello('Ida'); // Udskriver "hello Ida"
+sayHello('Natasja'); // Udskriver "hello Natasja"
 ```
 
 ### Anonyme funktioner
-En anonym funktion er en funktion uden et navn. Funktionnen bliver kaldt ved en variabels navn idet en variabel bliver tildelt en funktion. 
+En anonym funktion er en funktion uden et navn. Funktionen bliver kaldt ved en variabels navn idet en variabel bliver tildelt en funktion. 
 
 *Eksempel:*
 
 ```javascript
 // Anonym funktion
-var HejMedDig = function (value) {
+var HejMedDig = function (value) {//funktionen kaldes ved variablens navn HejMedDig.
     console.log(value); // Udskriver " bla bla bla bla"
 }
 
 HejMedDig('bla bla bla bla');
 ```
-*Her er et andet eksempel*
+
+*Her er et eksempel på en funktion som kan afkorte og returnere en ny streng:*
 
 ```javascript
-//profiler med flere personer
+
+//Javascript-function du kan bruge til at afkorte en streng
+var langtekst = "Hej med dig Jeg hedder Marie og jeg er 24 år gammel";
+
+function afkortt(tekst){
+    return tekst.substr(5, 10);
+}
+ console.log(afkortt(langtekst));
+```
+
+### Array som argument
+Funktioner kan have argumenter som kan være af typen array.
+
+*Her er et eksempel:*
+
+```javascript
+// Argumenter kan være af typen array
+
+var profil = function (p) {
+    return p[0] + " " + p[1] + ":\nFødt " + p[2] +" og jeg er " + p[3] + " år gammel"; // Returnerer tekst-strengen  "Marie Jensen: Født 1992"
+}
+var dato = new Date();
+var fodselsdag = new Date("11/10/92");
+var mig = ["Marie", "Jensen", "1992", dato.getFullYear() - fodselsdag.getFullYear()];
+
+console.log(profil(mig)); // Udskriver "Marie Jensen: Født 1992 og er 25 år gammel"
+ ```
+
+### Funktioner i funktioner
+Der kan være flere funktioner i samme funktion. 
+
+*eksempel:*
+
+```javascript
+//profil opgave med flere personer
 
 var tekst = " " ; 
-var profiler = [["Peter", "Pedal", 1941],["Marie", "Jensen", 1992],["Ida", "Hansen", 1994]]
+var profiler = [["Natasja", "Andersen", 1994],["Marie", "Jensen", 1992],["Ida", "Hansen", 1993]]
 
 profiler.forEach(function(element) {
     element.forEach(function(item) {
@@ -195,3 +233,5 @@ profiler.forEach(function(element) {
 
 console.log(tekst);
 ```
+
+
