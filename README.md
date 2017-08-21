@@ -238,8 +238,81 @@ console.log(tekst);
 ```
 
 ## Callbacks i JavaScript
+ Callbacks, er funktioner der sendes med som argument, til en anden funktion.
 
-*Forklaring på et eksempel med callbacks:*
+ Det vil sige at man kan videregive en funktion som et argument i en anden funktion og senere udføre denne indtastede funktion eller endda returnere den til at blive udført senere.
+
+ En callback funktion er en funktion, der overføres til en anden funktion som en parameter, og callback funktionen kaldes (eller udføres) inde i den anden funktion. 
+ 
+Når vi sender en callback funktion som et argument til en anden funktion, udføres tilbagekaldelsen på et tidspunkt inde i den indeholdende funktions kropp, ligesom hvis tilbagekaldelsen blev defineret i den indeholdende funktion. 
+
+*Eksempel med callbacks:*
+
+```javascript
+
+// tænk på dette som den primære funktion der kaldes fra vores kode
+function doSomething(someValue, callback){
+    callback(someValue);
+ }
+ // denne funktion vil blive udført som en callback FRA doSomething funktionen
+ function outputSomething(value){
+    console.log(value);
+ }
+//funktionen outputSomething kan kaldes uafhængigt af andre funktioner, mens doSomething skal have en funktion sendt med som argument.
+ doSomething('text', outputSomething);
+
+```
+
+### Asynkronitet
+
+*Eksempel med callbacks:*
+
+```javascript
+function getData(dataURI, callback) { 
+```
+Funktion med to argumenter dataURL og callback 
+
+```javascript
+   console.log('første linje i getData funktionen...');
+
+```
+console.log( ) udskriver : "første linje i getData funktionen..."
+
+```javascript
+   var timer = setTimeout(function () {
+      console.log('Her der der gået 2 sekunder.');
+      var dataArray = [12, 34, 56, 78, 90, 123, 456, 789];
+      callback(dataArray);
+   }, 2000);
+}
+```
+Variabel som har navnet timer og som indeholder en timeout med en anonym funktion, som vil fortælle javascript at det skal vente i 2 sekunder. Altså der vil gå 2 sek. før noget vises i konsollen. 
+
+
+```javascript
+function outputData(myData) {
+   console.log('Dette er funktionen der udskriver det hentede data: ' + myData);
+}
+```
+Denne funktion udskriver : tallene fra arrayet ovenover.
+
+console-log( ) udskriver : "Dette er funktionen der udskriver det hentede data: 12, 34, 56, 78, 90, 123, 456, 789" 
+
+
+```javascript
+getData('http://www.domain.com/something', outputData);
+console.log("Denne kode linje burde være den sidste.");
+```
+Funktionen getData indeholder en timout på 2 sek. derfor vil alt indholdet i funktionen først vises efter 2 sek. i konsollen, og dermed vises den sidste console.log ikke tilsidst, men som nr 2 i konsollen. 
+
+Dvs. at først vises console.log('første linje i getData funktionen...')
+
+Derefter vises console.log("Denne kode linje burde være den sidste.");
+
+Og tilsidst vises console.log('Her der der gået 2 sekunder.');
+
+
+*Her vises hele koden samlet:*
 
 ```javascript
 
@@ -261,13 +334,6 @@ console.log("Denne kode linje burde være den sidste.");
 
 ```
 
-Funktionen getData indeholder en timout på 2 sek. derfor vil alt indholdet i funktionen først vises efter 2 sek. i browseren, og dermed vises den sidste console.log ikke tilsidst, men som nr 2 i browseren. 
-
-Dvs. at først vises  console.log('første linje i getData funktionen...')
-
-Derefter vises console.log("Denne kode linje burde være den sidste.");
-
-Og tilsidst vises console.log('Her der der gået 2 sekunder.');
 
 
 
