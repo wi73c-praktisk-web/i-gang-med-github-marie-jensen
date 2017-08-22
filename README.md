@@ -334,7 +334,71 @@ console.log("Denne kode linje burde være den sidste.");
 
 ```
 
+## Promises i JavaScript
+Promises fungerer lidt ligesom callbacks. 
+Promises er funktioner der sendes med som argument, til en anden funktion.
 
+Man bruger funktionerne .then() og .catch() når man skal bruge promises i Javascript. 
 
+Et Promise bruger to callbacks som kaldes resolve og reject.
 
+resolve() bliver til .then() og reject() bliver til .catch()
 
+*Eksempel med promises:*
+
+```javascript
+let secondPromise = new Promise(function (resolve, reject) {
+   // her kunne der være masser af kode der skulle udføres
+   // og derefter afsluttes med at resolve eller reject
+   // alt efter om alting lykkedes eller ej
+   if (true) {
+      resolve('success');
+   } else {
+      reject('Det var ikke en succes');
+   }
+});
+
+secondPromise.then(successMessage => {
+   console.log(successMessage);
+}).catch(errorMessage => {
+   console.log(errorMessage);
+});
+```
+
+### Fetch .then .catch i Javascript
+
+ *Eksempel med Fetch:*
+
+ ```html
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="content"> Henter data...</div>
+    <script>
+
+// Øvelse 2 Udskriv data fra alle 10 personer
+
+   fetch('https://swapi.co/api/people/')
+   .then((response) => {
+      return response.json();
+   })
+   .then((json) => {
+       var test = document.getElementById('content');
+json.results.forEach(function(item, index, arr){
+       console.log(json.results[index].name);
+       test.innerHTML += '<h2>' + "Name: " + json.results[index].name + '</h2>'+ "<h3>" + "Height: " + json.results[index].height + "</h3>"
+      + "<h3>"  + "Gender: "  + json.results[index].gender + "</h3>" + "<h3>"  + "Skin color: " + json.results[index].skin_color + "</h3>" 
+    item[index];
+}); 
+   })
+
+    </script>
+</body>
+</html>
+ ```
