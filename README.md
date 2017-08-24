@@ -402,3 +402,72 @@ json.results.forEach(function(item, index, arr){
 </body>
 </html>
  ```
+
+ ## Node-server
+
+Node-server helt basic: 
+
+*Her er et eksempel med forklaringer:*
+```Javascript
+const http = require('http'); //Henter http modulet
+
+const hostname = '127.0.0.1'; //Angiver hostname (ip-adresse eller "localhost")
+
+const port = 3000; //Angiver hvilken port
+
+// Opret en server og lad den sende (response) teksten "Hello from server" til browseren (client)
+const server = http.createServer(function (req, res) {
+    res.statusCode = 200;// Tjekker om der er forbindelse til siden
+    res.setHeader('Content-Type', 'text/html');// Angiver hvilken tekst format der er tale om fx html, php, css  osv.
+    res.write('<h1>Hello from server</h1>');// Her kan du skrive koden eller lave en simpelt hjemmeside
+    res.end();// slutter koden
+});
+
+server.listen(port, hostname, function () {
+   console.log(`serveren kører på http://${hostname}:${port}/`);
+});
+ ```
+
+
+Routes helt basic:
+
+*Her er et eksempel med forklaringer:*
+
+
+ ```Javascript
+ //server.js
+const http = require('http'); // Henter http modulet
+const hostname = '127.0.0.1'; // Angiver hostname 
+const port = 3000; // Angiver hvilken port
+
+const router = require('./controllers/routesController');
+//Router bruger man hvis ens site består af flere sider
+
+http.createServer(function (req, res) {
+    router.init(req, res);
+}).listen(port, hostname);
+
+console.log(`serveren kører på http://${hostname}:${port}/`);
+
+//routesController.js
+const url = require('url'); // Henter url modulet
+
+module.exports = {
+	init: function (req, res) {
+		var pathname = url.parse(req.url, true).pathname;
+		if (pathname === '/forside') {//Angiver hvad der står i browserens URL
+			res.statusCode = 200;
+			res.setHeader('Content-Type', 'text/html');
+// Angiver hvilken tekst format der er tale om fx html, php, css  osv.
+			res.write("Forside");
+// Her kan du skrive koden eller lave en simpelt hjemmeside
+			res.end();
+		} else {
+			res.statusCode = 404; 
+            // Skriver ups hvis der er en fejl
+			res.end("Ups...");
+		}
+	}
+};
+
+ ```
