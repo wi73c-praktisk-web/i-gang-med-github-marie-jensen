@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="content"> Henter data...</div>
+    <script>
+
+// Øvelse 3 __________________________________________________________________
+
+   fetch('https://swapi.co/api/people/')
+   .then((response) => {
+       if(response.status == 200){
+           return response.json();
+       }
+      throw new Error ("Fejlmeddelse");
+   })
+   
+   .then((json) => {
+       var test = document.getElementById('content');
+json.results.forEach(function(item, index, arr){
+       console.log(json.results[index].name);
+       console.log(json.results[index].gender);
+       test.innerHTML += '<h2>' + json.results[index].name + '</h2>' + '<h3>' + json.results[index].gender + '</h3>';
+    item[index];
+})  
+})
+.catch((error) => {
+    console.log(error); 
+   });
+
+    </script>
+</body>
+</html>

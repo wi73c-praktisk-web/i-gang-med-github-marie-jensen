@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="content"> Henter data...</div>
+    <script>
+
+fetch('https://swapi.co/api/people/')
+   .then((response) => {
+      // grib svarets indhold (body) og send det som et json objekt til næste .then()
+      return response.json();
+   })
+   .then((data) => {
+      // nu er json objektet lagt ind i data variablen, udskriv data
+      console.log(data);
+   })
+
+//________________________________________________________________________________________________
+
+// Øvelse 1  Udskrevet data fra Luke Skywalker
+
+   fetch('https://swapi.co/api/people/')
+   .then((response) => {
+      return response.json();
+   })
+   .then((json) => {
+      var content = document.getElementById('content');
+      content.innerHTML = '<h1>'  + "Name: " +  json.results[0].name + '</h1>' + "<h3>" + "Height: " + json.results[0].height + "</h3>"
+      + "<h3>"  + "Gender: "  + json.results[0].gender + "</h3>" + "<h3>"  + "Skin color: " + json.results[0].skin_color + "</h3>" ;
+   })
+
+//________________________________________________________________________________________________
+
+// Øvelse 2 Udskriv de samme elementer, fra alle 10 personer
+
+   fetch('https://swapi.co/api/people/')
+   .then((response) => {
+      return response.json();
+   })
+   .then((json) => {
+       var test = document.getElementById('content');
+json.results.forEach(function(item, index, arr){
+       console.log(json.results[index].name);
+       test.innerHTML += '<h2>' + "Name: " + json.results[index].name + '</h2>'+ "<h3>" + "Height: " + json.results[index].height + "</h3>"
+      + "<h3>"  + "Gender: "  + json.results[index].gender + "</h3>" + "<h3>"  + "Skin color: " + json.results[index].skin_color + "</h3>" 
+    item[index];
+}); 
+   })
+
+  
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+
+<!-- Øvelse 2 -->
+
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<title>hej med dig</title> 
+<meta charset="UTF-8"> 
+<meta name="viewport" content="width=device-width, initial-scale=1"> 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> 
+</head> 
+<body> 
+
+    <p id="hej"></p>
+ 
+    <script>
+    
+    var hej_html = document.getElementById("hej");
+    
+function hello(værdi, callback){
+    værdi += "Hej med dig" 
+   callback(værdi);
+}
+
+function udskriv(value){
+   console.log(value);
+   hej_html.innerHTML += "<p>" + value + "</p>";
+}
+
+hello('bla bla bla', udskriv);                       
+                            
+    </script> 
+
+ 
+</body> 
+ </html> 
