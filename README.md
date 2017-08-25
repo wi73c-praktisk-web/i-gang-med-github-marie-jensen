@@ -344,6 +344,10 @@ Et Promise bruger to callbacks som kaldes resolve og reject.
 
 resolve() bliver til .then() og reject() bliver til .catch()
 
+resolve() / .then() vises hvis der ikke er nogen fejl. I eksemplet nedenunder skrives der 'success'.
+
+reject() / .catch vises hvis der er en fejl. I eksemplet nedenunder skrives der 'Det var ikke en succes'. 
+
 *Eksempel med promises:*
 
 ```javascript
@@ -367,7 +371,12 @@ secondPromise.then(successMessage => {
 
 ### Fetch .then .catch i Javascript
 
-Man bruger Fetch når man skal hente noget data fra en API. API er en fil der indeholder noget data. 
+Fetch er en funktion som indeholder et promise. Svaret eller dataen ender i .then() funktionnen, og hvis der er en fejl ender svaret/dataen i .catch() funktionen. 
+
+Man bruger f.eks. Fetch når man skal hente noget data fra en API. API er en fil der indeholder noget data. 
+
+For at kunne læse dataen som man får retur skal man bruge JSON. Man skal trække data delen ud som et JSON objekt.
+JSON er lidt ligesom et array. 
 
 I eksemplet nedenunder indeholder API'en data fra et opslagsværk omkring Star Wars.
 
@@ -388,13 +397,13 @@ I eksemplet nedenunder indeholder API'en data fra et opslagsværk omkring Star W
 
 // Øvelse 2 Udskriv data fra alle 10 personer fra Star Wars
 
-   fetch('https://swapi.co/api/people/')
-   .then((response) => {
-      return response.json();
+   fetch('https://swapi.co/api/people/')//fetch indeholder data fra en API
+   .then((response) => { //dataen ender her i response
+      return response.json();//dataen bliver lavet til en json fil. json filen er lidt ligesom et array. 
    })
-   .then((json) => {
-       var test = document.getElementById('content');
-json.results.forEach(function(item, index, arr){
+   .then((json) => { // funktion der fortæller hvad der skal ske med dataen
+       var test = document.getElementById('content');//fortæller hviklen html del jeg skal have fat på
+json.results.forEach(function(item, index, arr){//funktion som fortæller hvilke elementer i dataen jeg skal bruge
        console.log(json.results[index].name);
        test.innerHTML += '<h2>' + "Name: " + json.results[index].name + '</h2>'+ "<h3>" + "Height: " + json.results[index].height + "</h3>"
       + "<h3>"  + "Gender: "  + json.results[index].gender + "</h3>" + "<h3>"  + "Skin color: " + json.results[index].skin_color + "</h3>" 
