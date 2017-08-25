@@ -244,7 +244,7 @@ console.log(tekst);
 
  En callback funktion er en funktion, der overføres til en anden funktion som en parameter, og callback funktionen kaldes (eller udføres) inde i den anden funktion. 
  
-Når vi sender en callback funktion som et argument til en anden funktion, udføres tilbagekaldelsen på et tidspunkt inde i den indeholdende funktions kropp, ligesom hvis tilbagekaldelsen blev defineret i den indeholdende funktion. 
+Når vi sender en callback funktion som et argument til en anden funktion, udføres tilbagekaldelsen på et tidspunkt inde i den indeholdende funktions krop, ligesom hvis tilbagekaldelsen blev defineret i den indeholdende funktion. 
 
 *Eksempel med callbacks:*
 
@@ -367,6 +367,10 @@ secondPromise.then(successMessage => {
 
 ### Fetch .then .catch i Javascript
 
+Man bruger Fetch når man skal hente noget data fra en API. API er en fil der indeholder noget data. 
+
+I eksemplet nedenunder indeholder API'en data fra et opslagsværk omkring Star Wars.
+
  *Eksempel med Fetch:*
 
  ```html
@@ -382,7 +386,7 @@ secondPromise.then(successMessage => {
     <div id="content"> Henter data...</div>
     <script>
 
-// Øvelse 2 Udskriv data fra alle 10 personer
+// Øvelse 2 Udskriv data fra alle 10 personer fra Star Wars
 
    fetch('https://swapi.co/api/people/')
    .then((response) => {
